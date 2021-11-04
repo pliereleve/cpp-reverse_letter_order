@@ -11,23 +11,23 @@ int main()
 	{
 		tab[i] = getchar();
 		i++;
-	} while (tab[i - 1] != '\x0A');		//odpowiednik line feed (enter) w ascii (szesnastkowo); inny sposób: '\n'
+	} while (tab[i - 1] != '\x0A');		//odpowiednik line feed (enter) w ascii (szesnastkowo); inny sposob: '\n'
 	
 	char wynik[1000];
-	for (int k = 0; k < i; k++)			//i - liczba znaków ca³ego tekstu
+	for (int k = 0; k < i; k++)			//i - liczba znakow calego tekstu
 	{
 		int licznik = 0;
 
 		while (tab[k] != ' ' && tab[k] != '\n')
 		{
-			licznik++;
+			licznik++;					//zlicza dlugosc slowa
 			k++;
 		}
 		
-		for (int s = k - licznik, j = 0; s < k; s++, j++)		//s ma startowaæ od pocz¹tku odwracanego s³owa (k-licznik)
-		{														//j to zmienna pomocnicza do poruszania siê po tab
-			wynik[s] = tab[k - j - 1];							//k-j przechodzi po odwracanym s³owie od koñca; 
-		}														//-1 poniewa¿ k pocz¹tkowo pokazuje na spacjê (wy¿sza pêtla while koñczy obieg, gdy k wejdzie na spacjê)
+		for (int s = k - licznik, j = 0; s < k; s++, j++)		//s ma startowac od poczatku odwracanego slowa (k-licznik)
+		{														//j to zmienna pomocnicza do poruszania sie po tab
+			wynik[s] = tab[k - j - 1];							//k-j przechodzi po odwracanym slowie od konca; 
+		}														//-1 poniewaz k poczatkowo pokazuje na spacje (wyzsza petla while konczy obieg, gdy k wejdzie na spacje)
 		wynik[k] = ' ';
 	}
 
